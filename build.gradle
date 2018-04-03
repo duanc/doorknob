@@ -8,17 +8,17 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
-
-dependencies {
-    compile "org.web3j:core:$web3jVersion",
-            "ch.qos.logback:logback-core:$logbackVersion",
-            "ch.qos.logback:logback-classic:$logbackVersion"
-    testCompile "junit:junit:$junitVersion"
-}
-
 ext {
     web3jVersion = '3.2.0'
     logbackVersion = '1.2.3'
     junitVersion = '4.12'
 }
+
+dependencies {
+    compile "org.web3j:core:3.2.0",
+            "ch.qos.logback:logback-core:1.2.3",
+            "ch.qos.logback:logback-classic:1.2.3"
+    testCompile "junit:junit:4.12"
+}
+
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doorknob.iml" filepath="$PROJECT_DIR$/.idea/modules/doorknob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doorknob.iml" filepath="$PROJECT_DIR$/doorknob.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/doorknob_main.iml" filepath="$PROJECT_DIR$/.idea/modules/doorknob_main.iml" group="doorknob" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/doorknob_test.iml" filepath="$PROJECT_DIR$/.idea/modules/doorknob_test.iml" group="doorknob" />
     </modules>

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -27,26 +28,70 @@ public class Controller implements Initializable {
     @FXML
     private TextField datadir;
 
-
-
-
-
-//    web 界面
     @FXML
-    private WebView webView;
+    private TextField identity;
 
+    @FXML
+    private TextField networkid;
 
+    @FXML
+    private TextField rpccorsdomain;
 
+    @FXML
+    private CheckBox isDev;
+
+    @FXML
+    private CheckBox isGcmode;
+
+    @FXML
+    private CheckBox isRpc;
+
+    @FXML
+    private TextField rpcaddr;
+
+    @FXML
+    private TextField rpcport;
+
+    @FXML
+    private TextField rpcapi;
 
 
     @FXML
     protected void startButtonAction(ActionEvent event) throws IOException, InterruptedException {
-        String command = "cmd /k start geth --datadir \"C:\\Users\\Administrator\\Desktop\\silian\\dev\"  --networkid  5777 --identity \"mydev\" --gcmode=archive --rpcapi \"eth,net,web3,admin,personal\" --rpc --rpcaddr \"127.0.0.1\" --rpcport \"7545\" --rpccorsdomain \"*\"  console";
-        Runnable myRunnable = new Runnable(){
-            public void run(){
+
+
+        String command = "cmd /k start geth --datadir " + datadir.getText() +
+                "  --networkid " + networkid.getText() +
+                "  --identity " + identity.getText();
+
+        if (isDev.isSelected()) {
+            command += " --dev";
+        }
+
+        if (isGcmode.isSelected()) {
+            command += " --gcmode=archive";
+        }
+
+        if (isRpc.isSelected()) {
+            command += " --rpc --rpcaddr " + rpcaddr.getText() +
+                    " --rpcport " + rpcport.getText() +
+                    " --rpcapi " + rpcapi.getText();
+        }
+
+
+        command += " console";
+        System.out.print(command);
+
+
+//                "\"mydev\" --gcmode=archive --rpcapi \"eth,net,web3,admin,personal\" --rpc --rpcaddr \"127.0.0.1\" --rpcport \"7545\" --rpccorsdomain \"*\"  console";
+
+
+        String finalCommand = command;
+        Runnable myRunnable = new Runnable() {
+            public void run() {
                 Process p = null;
                 try {
-                    p = Runtime.getRuntime().exec(command);
+                    p = Runtime.getRuntime().exec(finalCommand);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -58,22 +103,20 @@ public class Controller implements Initializable {
     }
 
 
-
-
-
     //初始化
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         datadir.setText("C:\\Users\\Administrator\\Desktop\\silian\\dev");
+        identity.setText("mydev");
+        networkid.setText("5777");
+        rpccorsdomain.setText("*");
+        isDev.setSelected(true);
+        isGcmode.setSelected(true);
+        isRpc.setSelected(true);
 
-        WebEngine webEngine = webView.getEngine();
-        webEngine.load("http://localhost:9095/web3-test/index.html");
-        webEngine.setOnAlert(new EventHandler<WebEvent<String>>() {
-            @Override
-            public void handle(WebEvent<String> event) {
-                System.out.print(event.getData().toString());
-            }
-        });
+        rpcaddr.setText("127.0.0.1");
+        rpcport.setText("7545");
+        rpcapi.setText("eth,net,web3,admin,personal,miner");
     }
 
 
