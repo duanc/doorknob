@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_doorknob" default="compile.module.doorknob">
+  <dirname property="module.doorknob.basedir" file="${ant.file.module_doorknob}"/>
+  
+  <property name="module.jdk.home.doorknob" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.doorknob" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.doorknob" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.doorknob" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="doorknob.output.dir" value="${module.doorknob.basedir}/../../out/production/doorknob"/>
+  <property name="doorknob.testoutput.dir" value="${module.doorknob.basedir}/../../out/test/doorknob"/>
+  
+  <path id="doorknob.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="doorknob.module.production.classpath">
+    <path refid="${module.jdk.classpath.doorknob}"/>
+  </path>
+  
+  <path id="doorknob.runtime.production.module.classpath">
+    <pathelement location="${doorknob.output.dir}"/>
+  </path>
+  
+  <path id="doorknob.module.classpath">
+    <path refid="${module.jdk.classpath.doorknob}"/>
+    <pathelement location="${doorknob.output.dir}"/>
+  </path>
+  
+  <path id="doorknob.runtime.module.classpath">
+    <pathelement location="${doorknob.testoutput.dir}"/>
+    <pathelement location="${doorknob.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.doorknob">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.doorknob">
+    <patternset refid="excluded.from.module.doorknob"/>
+  </patternset>
+  
+  
+  <target name="compile.module.doorknob" depends="compile.module.doorknob.production,compile.module.doorknob.tests" description="Compile module doorknob"/>
+  
+  <target name="compile.module.doorknob.production" depends="register.custom.compilers" description="Compile module doorknob; production classes"/>
+  
+  <target name="compile.module.doorknob.tests" depends="register.custom.compilers,compile.module.doorknob.production" description="compile module doorknob; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.doorknob" description="cleanup module">
+    <delete dir="${doorknob.output.dir}"/>
+    <delete dir="${doorknob.testoutput.dir}"/>
+  </target>
+</project>

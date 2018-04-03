@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_doorknob_main" default="compile.module.doorknob_main">
+  <dirname property="module.doorknob_main.basedir" file="${ant.file.module_doorknob_main}"/>
+  
+  <property name="module.jdk.home.doorknob_main" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.doorknob_main" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.doorknob_main" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.doorknob_main" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="doorknob_main.output.dir" value="${module.doorknob_main.basedir}/../../out/production/classes"/>
+  <property name="doorknob_main.testoutput.dir" value="${module.doorknob_main.basedir}/../../out/production/classes"/>
+  
+  <path id="doorknob_main.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="doorknob_main.module.production.classpath">
+    <path refid="${module.jdk.classpath.doorknob_main}"/>
+    <path refid="library.gradle:_org.web3j:core:3.2.0.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.gradle:_org.web3j:abi:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:crypto:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:tuples:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-unixsocket:0.15.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:logging-interceptor:3.8.1.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.gradle:_io.reactivex:rxjava:1.2.4.classpath"/>
+    <path refid="library.gradle:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.gradle:_org.web3j:utils:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:rlp:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-databind:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-enxio:0.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-posix:3.0.33.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-ffi:2.1.2.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-constants:0.9.6.classpath"/>
+    <path refid="library.gradle:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.gradle:_org.bouncycastle:bcprov-jdk15on:1.54.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-annotations:2.8.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-core:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:1.2.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:native:1.2.14.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-commons:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-analysis:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-util:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-tree:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm:5.0.3.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-x86asm:1.0.2.classpath"/>
+  </path>
+  
+  <path id="doorknob_main.runtime.production.module.classpath">
+    <pathelement location="${doorknob_main.output.dir}"/>
+    <path refid="library.gradle:_org.web3j:core:3.2.0.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.gradle:_org.web3j:abi:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:crypto:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:tuples:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-unixsocket:0.15.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:logging-interceptor:3.8.1.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.gradle:_io.reactivex:rxjava:1.2.4.classpath"/>
+    <path refid="library.gradle:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.gradle:_org.web3j:utils:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:rlp:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-databind:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-enxio:0.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-posix:3.0.33.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-ffi:2.1.2.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-constants:0.9.6.classpath"/>
+    <path refid="library.gradle:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.gradle:_org.bouncycastle:bcprov-jdk15on:1.54.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-annotations:2.8.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-core:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:1.2.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:native:1.2.14.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-commons:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-analysis:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-util:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-tree:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm:5.0.3.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-x86asm:1.0.2.classpath"/>
+  </path>
+  
+  <path id="doorknob_main.module.classpath">
+    <path refid="${module.jdk.classpath.doorknob_main}"/>
+    <pathelement location="${doorknob_main.output.dir}"/>
+    <path refid="library.gradle:_org.web3j:core:3.2.0.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.gradle:_org.web3j:abi:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:crypto:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:tuples:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-unixsocket:0.15.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:logging-interceptor:3.8.1.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.gradle:_io.reactivex:rxjava:1.2.4.classpath"/>
+    <path refid="library.gradle:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.gradle:_org.web3j:utils:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:rlp:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-databind:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-enxio:0.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-posix:3.0.33.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-ffi:2.1.2.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-constants:0.9.6.classpath"/>
+    <path refid="library.gradle:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.gradle:_org.bouncycastle:bcprov-jdk15on:1.54.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-annotations:2.8.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-core:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:1.2.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:native:1.2.14.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-commons:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-analysis:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-util:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-tree:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm:5.0.3.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-x86asm:1.0.2.classpath"/>
+  </path>
+  
+  <path id="doorknob_main.runtime.module.classpath">
+    <pathelement location="${doorknob_main.output.dir}"/>
+    <path refid="library.gradle:_org.web3j:core:3.2.0.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.gradle:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.gradle:_org.web3j:abi:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:crypto:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:tuples:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-unixsocket:0.15.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:logging-interceptor:3.8.1.classpath"/>
+    <path refid="library.gradle:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.gradle:_io.reactivex:rxjava:1.2.4.classpath"/>
+    <path refid="library.gradle:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.gradle:_org.web3j:utils:3.2.0.classpath"/>
+    <path refid="library.gradle:_org.web3j:rlp:3.2.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-databind:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-enxio:0.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-posix:3.0.33.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-ffi:2.1.2.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-constants:0.9.6.classpath"/>
+    <path refid="library.gradle:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.gradle:_org.bouncycastle:bcprov-jdk15on:1.54.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-annotations:2.8.0.classpath"/>
+    <path refid="library.gradle:_com.fasterxml.jackson.core:jackson-core:2.8.5.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:1.2.14.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jffi:native:1.2.14.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-commons:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-analysis:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-util:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm-tree:5.0.3.classpath"/>
+    <path refid="library.gradle:_org.ow2.asm:asm:5.0.3.classpath"/>
+    <path refid="library.gradle:_com.github.jnr:jnr-x86asm:1.0.2.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.doorknob_main">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.doorknob_main">
+    <patternset refid="excluded.from.module.doorknob_main"/>
+  </patternset>
+  
+  <path id="doorknob_main.module.sourcepath">
+    <dirset dir="${module.doorknob_main.basedir}/../../src/main">
+      <include name="java"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.doorknob_main" depends="compile.module.doorknob_main.production,compile.module.doorknob_main.tests" description="Compile module doorknob_main"/>
+  
+  <target name="compile.module.doorknob_main.production" depends="register.custom.compilers" description="Compile module doorknob_main; production classes">
+    <mkdir dir="${doorknob_main.output.dir}"/>
+    <javac2 destdir="${doorknob_main.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.doorknob_main}/javac">
+      <compilerarg line="${compiler.args.doorknob_main}"/>
+      <bootclasspath refid="doorknob_main.module.bootclasspath"/>
+      <classpath refid="doorknob_main.module.production.classpath"/>
+      <src refid="doorknob_main.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.doorknob_main"/>
+    </javac2>
+    
+    <copy todir="${doorknob_main.output.dir}">
+      <fileset dir="${module.doorknob_main.basedir}/../../src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.doorknob_main.basedir}/../../src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.doorknob_main.tests" depends="register.custom.compilers,compile.module.doorknob_main.production" description="compile module doorknob_main; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.doorknob_main" description="cleanup module">
+    <delete dir="${doorknob_main.output.dir}"/>
+    <delete dir="${doorknob_main.testoutput.dir}"/>
+  </target>
+</project>
