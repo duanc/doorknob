@@ -80,7 +80,7 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font></Label>
-                              <Button layoutX="670.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="启动">
+                              <Button layoutX="670.0" layoutY="492.0" mnemonicParsing="false" onAction="#linkOtherButton" prefHeight="40.0" prefWidth="110.0" text="启动">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -132,13 +132,13 @@
                                        <Font size="13.0" />
                                    </font>
                                </Label>
-                               <TextField layoutX="122.0" layoutY="437.0" prefHeight="23.0" prefWidth="270.0" />
+                               <TextField fx:id="attachIP" layoutX="122.0" layoutY="437.0" prefHeight="23.0" prefWidth="270.0" />
                                <Label layoutX="417.0" layoutY="439.0" prefHeight="18.0" prefWidth="83.0" text="端口号：">
                                    <font>
                                        <Font size="13.0" />
                                    </font>
                                </Label>
-                               <TextField layoutX="512.0" layoutY="437.0" prefHeight="23.0" prefWidth="272.0" />
+                               <TextField fx:id="attachPort" layoutX="512.0" layoutY="437.0" prefHeight="23.0" prefWidth="272.0" />
 
 
                            </children></AnchorPane>

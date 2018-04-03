@@ -55,51 +55,41 @@ public class Controller implements Initializable {
     @FXML
     private TextField rpcapi;
 
+    @FXML
+    private TextField attachIP;
+
+    @FXML
+    private TextField attachPort;
+
 
     @FXML
     protected void startButtonAction(ActionEvent event) throws IOException, InterruptedException {
 
-
         String command = "cmd /k start geth --datadir " + datadir.getText() +
                 "  --networkid " + networkid.getText() +
                 "  --identity " + identity.getText();
-
         if (isDev.isSelected()) {
             command += " --dev";
         }
-
         if (isGcmode.isSelected()) {
             command += " --gcmode=archive";
         }
-
         if (isRpc.isSelected()) {
             command += " --rpc --rpcaddr " + rpcaddr.getText() +
                     " --rpcport " + rpcport.getText() +
                     " --rpcapi " + rpcapi.getText();
         }
-
-
         command += " console";
-        System.out.print(command);
+        startCmd(command);
+    }
 
 
-//                "\"mydev\" --gcmode=archive --rpcapi \"eth,net,web3,admin,personal\" --rpc --rpcaddr \"127.0.0.1\" --rpcport \"7545\" --rpccorsdomain \"*\"  console";
+    @FXML
+    protected void linkOtherButton(ActionEvent event) throws IOException, InterruptedException {
 
-
-        String finalCommand = command;
-        Runnable myRunnable = new Runnable() {
-            public void run() {
-                Process p = null;
-                try {
-                    p = Runtime.getRuntime().exec(finalCommand);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        };
-        Thread thread = new Thread(myRunnable);
-        thread.start();
+        String command = "cmd /k start geth attach ";
+        command = command + "http://"+attachIP.getText()+":"+attachPort.getText();
+        startCmd(command);
     }
 
 
@@ -117,6 +107,29 @@ public class Controller implements Initializable {
         rpcaddr.setText("127.0.0.1");
         rpcport.setText("7545");
         rpcapi.setText("eth,net,web3,admin,personal,miner");
+
+
+        attachIP.setText("127.0.0.1");
+        attachPort.setText("7545");
+    }
+
+
+    private void startCmd(String finalCommand ){
+
+        Runnable myRunnable = new Runnable() {
+            public void run() {
+                Process p = null;
+                try {
+                    p = Runtime.getRuntime().exec(finalCommand);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        Thread thread = new Thread(myRunnable);
+        thread.start();
+
     }
 
 
